@@ -49,7 +49,7 @@ jobs:
         run: |
           ssh ${{ secrets.SWARM_HOST }} << 'EOF'
           set -e
-          docker stack deploy -c /path/to/docker-swarm.yml --with-registry-auth rms
+          docker stack deploy -c /opt/airflow/docker-swarm.yml --with-registry-auth rms
           sleep 10
           docker stack services rms
           EOF
