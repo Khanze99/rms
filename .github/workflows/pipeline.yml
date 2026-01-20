@@ -50,7 +50,8 @@ jobs:
           ssh ${{ secrets.SWARM_HOST }} << 'EOF'
           git pull origin main
           set -e
-          docker stack deploy -c /opt/airflow/docker-swarm.yml --with-registry-auth rms
+          cd rms/
+          docker stack deploy -c docker-swarm.yml --with-registry-auth rms
           sleep 10
           docker stack services rms
           EOF
