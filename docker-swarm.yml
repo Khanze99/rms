@@ -209,30 +209,30 @@ services:
       start_period: 60s
 
 
-  django-migrate:
-    image: khanze/rms:0.0.5
-    user: root
-    volumes:
-      - static_volume:/opt/airflow/admin/static
-    secrets:
-      - superuser
-      - superuser_email
-      - django_secret_key
-      - django_debug
-      - postgres_name
-      - postgres_user
-      - postgres_password
-      - postgres_host
-      - postgres_port
-      - postgres_db
-    working_dir: /opt/airflow/admin
-    entrypoint: ["/opt/airflow/admin/migrate.sh"]
-    networks:
-      - internal
-    deploy:
-      replicas: 1
-      restart_policy:
-        condition: on-failure
+#  django-migrate:
+#    image: khanze/rms:0.0.5
+#    user: root
+#    volumes:
+#      - static_volume:/opt/airflow/admin/static
+#    secrets:
+#      - superuser
+#      - superuser_email
+#      - django_secret_key
+#      - django_debug
+#      - postgres_name
+#      - postgres_user
+#      - postgres_password
+#      - postgres_host
+#      - postgres_port
+#      - postgres_db
+#    working_dir: /opt/airflow/admin
+#    entrypoint: ["/opt/airflow/admin/migrate.sh"]
+#    networks:
+#      - internal
+#    deploy:
+#      replicas: 1
+#      restart_policy:
+#        condition: on-failure
 
   redis:
     # Redis is limited to 7.2-bookworm due to licencing change
